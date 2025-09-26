@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from './button'
-import ProjectList from './ProjectList'
+
 
 const ProjectSidebar = ({projects, onStartAddProject}) => {
   return (
