@@ -9,9 +9,6 @@ const Modal = forwardRef(({children, buttonCaption}, ref) => {
     return {
         open(){
            dialog.current.showModal()
-        },
-        close(){
-            dialog.current.closeModel()
         }
     }
   })

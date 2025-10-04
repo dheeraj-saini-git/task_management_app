@@ -1,21 +1,23 @@
 import React from "react";
+import Tasks from "./Tasks";
 
-const SelectedProject = ({project}) => {
-  const format = new Date(ProjectSidebar.dueDate).toLocaleDateString('en-US',{
+const SelectedProject = ({project, onDelete, onDeleteTask, onAddTask, tasks}) => {
+  const formattedDate = new Date(project.dueDate).toLocaleDateString('en-US',{
     year:'numeric',
     month:'short',
     day:'numeric'
   })
   return (
     <div className="w-[35rem] mt-15">
-      <header>
-        <div>
-          <h2>{project.title}</h2>
-          <button>Delete</button>
+      <header className="pb-4 mb-4 border-b-2 border-stone-300">
+        <div className="flex items-center justify-between">
+          <h1 className="text-3xl font-bold text-stone-600 mb-2">{project.title}</h1>
+          <button className="text-stone-600 hover:text-stone-950" onClick={onDelete}>Delete</button>
         </div>
-        <p>{project.dueDate}</p>
-        <p>{project.description}</p>
+        <p className="mb-4 text-stone-400">{formattedDate}</p>
+        <p className="text-stone-600 whitespace-pre-wrap">{project.description}</p>
       </header>
+      <Tasks tasks={tasks} onAdd={onAddTask} onDelete={onDeleteTask}/>
     </div>
   );
 };
